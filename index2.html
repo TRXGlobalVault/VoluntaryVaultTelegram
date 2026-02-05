@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Voluntary Vault</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;font-family:'Manrope',sans-serif;margin:0;padding:0;}
+body{background: linear-gradient(135deg,#020617,#071a3a);color:white;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+.container{max-width:900px;width:100%;padding:40px 20px;text-align:center;}
+.logo{font-size:42px;font-weight:800;color:#00ffd5;margin-bottom:40px;}
+.lang{position:fixed;top:15px;right:15px;display:flex;gap:8px;}
+.lang button{background:none;border:1px solid rgba(255,255,255,0.3);color:white;padding:6px 12px;border-radius:6px;cursor:pointer;transition:0.2s;}
+.lang button:hover{background: rgba(255,255,255,0.1);}
+.hero h1{font-size:46px;line-height:1.2;margin-bottom:20px;}
+.hero p{font-size:20px;opacity:0.85;max-width:650px;margin:auto;margin-bottom:40px;}
+.card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:22px;padding:35px;margin-bottom:40px;backdrop-filter:blur(15px);}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;}
+.feature{background:rgba(0,0,0,0.4);padding:25px;border-radius:16px;transition:0.25s;}
+.feature:hover{background:rgba(0,0,0,0.6);}
+.feature h3{margin:0 0 8px;color:#00ffd5;}
+.feature p{margin:0;opacity:0.85;}
+.btn{display:inline-block;background:linear-gradient(135deg,#00ffd5,#00aaff);color:#000;text-decoration:none;padding:20px 55px;font-size:20px;font-weight:700;border-radius:60px;box-shadow:0 0 35px rgba(0,255,213,0.6);transition:0.3s;margin-top:20px;}
+.btn:hover{transform:scale(1.06);box-shadow:0 0 50px rgba(0,255,213,0.9);}
+.social-proof{margin-top:20px;font-size:15px;opacity:0.7;}
+footer{margin-top:40px;font-size:13px;opacity:0.5;}
+@media(max-width:768px){.hero h1{font-size:36px;}.hero p{font-size:18px;}}
+</style>
+</head>
+
+<body>
+<div class="lang">
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('ru')">RU</button>
+    <button onclick="setLang('cn')">CN</button>
+    <button onclick="setLang('jp')">JP</button>
+    <button onclick="setLang('no')">NO</button>
+    <button onclick="setLang('ch')">CH</button>
+</div>
+
+<div class="container">
+    <div class="logo">Voluntary Vault</div>
+
+    <div class="hero">
+        <h1 id="title"></h1>
+        <p id="subtitle"></p>
+    </div>
+
+    <div class="card">
+        <div class="features">
+            <div class="feature">
+                <h3 id="f1t"></h3>
+                <p id="f1"></p>
+            </div>
+            <div class="feature">
+                <h3 id="f2t"></h3>
+                <p id="f2"></p>
+            </div>
+            <div class="feature">
+                <h3 id="f3t"></h3>
+                <p id="f3"></p>
+            </div>
+        </div>
+    </div>
+
+    <a class="btn" href="https://t.me/VoluntaryVault" target="_blank" id="join"></a>
+    <div class="social-proof" id="proof"></div>
+    <footer>© 2026 Voluntary Vault</footer>
+</div>
+
+<script>
+const data = {
+en:{
+title:"Earn Daily With Small Capital",
+subtitle:"Start from 1$. Get instant bonuses. Join our fast-growing community.",
+f1t:"From 1$",
+f1:"Anyone can start with minimal risk.",
+f2t:"Instant Bonus",
+f2:"Receive extra on your first deposit.",
+f3t:"24h Profit Cycle",
+f3:"Your money works every day.",
+join:"Join Telegram Channel",
+proof:"Over 10,000+ users already inside"
+},
+ru:{
+title:"Зарабатывай с минимальными суммами",
+subtitle:"Начни с 1$. Мгновенные бонусы. Растущее сообщество.",
+f1t:"От 1$",
+f1:"Начать может каждый с минимальным риском.",
+f2t:"Мгновенный бонус",
+f2:"Получите на первый депозит.",
+f3t:"Цикл 24 часа",
+f3:"Ваши деньги работают каждый день.",
+join:"Перейти в Telegram",
+proof:"Уже более 10 000+ участников"
+},
+cn:{
+title:"每天用小资金赚钱",
+subtitle:"从1$开始。获取即时奖励。加入快速增长的社区。",
+f1t:"从1$开始",
+f1:"任何人都可以开始，风险最小。",
+f2t:"即时奖励",
+f2:"首次存款即可获得额外资金。",
+f3t:"24小时收益周期",
+f3:"你的资金每天工作。",
+join:"加入Telegram频道",
+proof:"已有超过10,000用户"
+},
+jp:{
+title:"少額資金で毎日稼ぐ",
+subtitle:"1$から始める。即時ボーナスを取得。成長中のコミュニティに参加。",
+f1t:"1$から",
+f1:"誰でも最小リスクで始められます。",
+f2t:"即時ボーナス",
+f2:"初回入金で追加資金を受け取る。",
+f3t:"24時間サイクル",
+f3:"資金は毎日働きます。",
+join:"Telegramに参加",
+proof:"すでに10,000人以上が参加"
+},
+no:{
+title:"Tjen penger daglig med liten kapital",
+subtitle:"Start fra 1$. Få øyeblikkelige bonuser. Bli med i vårt raskt voksende fellesskap.",
+f1t:"Fra 1$",
+f1:"Alle kan starte med minimal risiko.",
+f2t:"Umiddelbar bonus",
+f2:"Få ekstra ved første innskudd.",
+f3t:"24-timers syklus",
+f3:"Pengene dine jobber hver dag.",
+join:"Bli med i Telegram",
+proof:"Over 10 000 brukere allerede inne"
+},
+ch:{
+title:"Earn Daily With Small Capital",
+subtitle:"Start from 1$. Get instant bonuses. Join our fast-growing community.",
+f1t:"From 1$",
+f1:"Anyone can start with minimal risk.",
+f2t:"Instant Bonus",
+f2:"Receive extra on your first deposit.",
+f3t:"24h Profit Cycle",
+f3:"Your money works every day.",
+join:"Join Telegram Channel",
+proof:"Over 10,000+ users already inside"
+}
+};
+
+function setLang(lang){
+const d = data[lang];
+document.getElementById("title").innerText=d.title;
+document.getElementById("subtitle").innerText=d.subtitle;
+document.getElementById("f1t").innerText=d.f1t;
+document.getElementById("f1").innerText=d.f1;
+document.getElementById("f2t").innerText=d.f2t;
+document.getElementById("f2").innerText=d.f2;
+document.getElementById("f3t").innerText=d.f3t;
+document.getElementById("f3").innerText=d.f3;
+document.getElementById("join").innerText=d.join;
+document.getElementById("proof").innerText=d.proof;
+}
+
+// Default language EN
+setLang('en');
+</script>
+</body>
+</html>
