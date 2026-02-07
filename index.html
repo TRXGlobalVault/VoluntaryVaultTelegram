@@ -2,124 +2,180 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Voluntary Vault</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;font-family:'Manrope',sans-serif;margin:0;padding:0;}
-body{background: linear-gradient(135deg,#020617,#071a3a);color:white;display:flex;justify-content:center;align-items:center;min-height:100vh;}
-.container{max-width:900px;width:100%;padding:40px 20px;text-align:center;}
-.logo{font-size:42px;font-weight:800;color:#00ffd5;margin-bottom:40px;}
-/* Языки фиксированы */
-.lang{
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    display: flex;
-    gap: 8px;
-    z-index: 9999;
-}
-.lang button{background:none;border:1px solid rgba(255,255,255,0.3);color:white;padding:6px 12px;border-radius:6px;cursor:pointer;transition:0.2s;}
-.lang button:hover{background: rgba(255,255,255,0.1);}
-.hero h1{font-size:46px;line-height:1.2;margin-bottom:20px;}
-.hero p{font-size:20px;opacity:0.85;max-width:650px;margin:auto;margin-bottom:40px;}
-.card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:22px;padding:35px;margin-bottom:40px;backdrop-filter:blur(15px);}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;}
-.feature{background:rgba(0,0,0,0.4);padding:25px;border-radius:16px;transition:0.25s;}
-.feature:hover{background:rgba(0,0,0,0.6);}
-.feature h3{margin:0 0 8px;color:#00ffd5;}
-.feature p{margin:0;opacity:0.85;}
-.btn{display:inline-block;background:linear-gradient(135deg,#00ffd5,#00aaff);color:#000;text-decoration:none;padding:20px 55px;font-size:20px;font-weight:700;border-radius:60px;box-shadow:0 0 35px rgba(0,255,213,0.6);transition:0.3s;margin-top:20px;}
-.btn:hover{transform:scale(1.06);box-shadow:0 0 50px rgba(0,255,213,0.9);}
-.social-proof{margin-top:20px;font-size:15px;opacity:0.7;}
-footer{margin-top:40px;font-size:13px;opacity:0.5;}
-@media(max-width:768px){.hero h1{font-size:36px;}.hero p{font-size:18px;}}
-</style>
+<title>Voluntary Vault</title>
+
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
+if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];
+t=b.createElement(e);t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '1566610124578100');
 fbq('track', 'PageView');
+fbq('track', 'ViewContent');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1566610124578100&ev=PageView&noscript=1"
-/></noscript>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1566610124578100&ev=PageView&noscript=1"/>
+</noscript>
 <!-- End Meta Pixel Code -->
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0d10;
+  --card:#12151b;
+  --accent:#5b7cff;
+  --accent-dark:#3f5bcc;
+  --text:#e8e9ea;
+  --muted:#8b8f98;
+}
+*{box-sizing:border-box;font-family:Inter,system-ui,sans-serif}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:radial-gradient(1200px 600px at top,#11162a 0%,var(--bg) 60%);
+  color:var(--text);
+}
+.card{
+  width:92%;
+  max-width:440px;
+  background:linear-gradient(180deg,#141826,var(--card));
+  border-radius:22px;
+  padding:34px 30px;
+  box-shadow:0 40px 120px rgba(0,0,0,.6);
+  text-align:center;
+}
+h1{
+  margin:0 0 12px;
+  font-size:26px;
+  font-weight:600;
+  color:var(--accent);
+}
+.subtitle{
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:26px;
+}
+/* Метрики - обновлённый стиль */
+.metrics{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:26px;
+}
+.metric{
+  flex:1;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:14px;
+  padding:16px 10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.metric span{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:6px; /* расстояние между подписью и цифрой */
+}
+.metric strong{
+  font-size:16px;
+  font-weight:600;
+  color:#fff;
+}
+.process{
+  font-size:14px;
+  line-height:1.7;
+  color:var(--muted);
+  margin-bottom:28px;
+}
+.cta{
+  display:block;
+  padding:16px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 12px 35px rgba(91,124,255,.45);
+  transition:.2s;
+  animation:pulse 2.6s infinite;
+}
+.cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 45px rgba(91,124,255,.65);
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(91,124,255,.45)}
+  70%{box-shadow:0 0 0 18px rgba(91,124,255,0)}
+  100%{box-shadow:0 0 0 0 rgba(91,124,255,0)}
+}
+.footer{
+  margin-top:26px;
+  font-size:11px;
+  color:#6f7480;
+}
+</style>
 </head>
 
 <body>
-<div class="lang">
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('ru')">RU</button>
-    <button onclick="setLang('cn')">CN</button>
-    <button onclick="setLang('jp')">JP</button>
-    <button onclick="setLang('no')">NO</button>
-    <button onclick="setLang('ch')">CH</button>
-</div>
+<div class="card">
 
-<div class="container">
-    <div class="logo">Voluntary Vault</div>
+  <h1>Voluntary Vault</h1>
+  <div class="subtitle">
+    Smart and transparent micro-investing infrastructure
+  </div>
 
-    <div class="hero">
-        <h1 id="title"></h1>
-        <p id="subtitle"></p>
+  <!-- Обновлённый блок метрик -->
+  <div class="metrics">
+    <div class="metric">
+      <span>Deposit</span>
+      <strong>1 – 100 $</strong>
     </div>
-
-    <div class="card">
-        <div class="features">
-            <div class="feature">
-                <h3 id="f1t"></h3>
-                <p id="f1"></p>
-            </div>
-            <div class="feature">
-                <h3 id="f2t"></h3>
-                <p id="f2"></p>
-            </div>
-            <div class="feature">
-                <h3 id="f3t"></h3>
-                <p id="f3"></p>
-            </div>
-        </div>
+    <div class="metric">
+      <span>Time</span>
+      <strong>24 Hours</strong>
     </div>
+    <div class="metric">
+      <span>Profit</span>
+      <strong>3 – 8 %</strong>
+    </div>
+  </div>
 
-    <a class="btn" href="https://t.me/VoluntaryVault" target="_blank" id="join" onclick="fbq('track', 'Lead');"></a>
-    <div class="social-proof" id="proof"></div>
-    <footer>© 2023–2026 Voluntary Vault. All rights reserved.</footer>
+  <div class="process">
+    Connect your wallet, confirm participation in the Vault, and activate a deposit.
+    After each 24-Hour cycle, profits are generated automatically.
+    You can reconnect anytime to track your progress.
+  </div>
+
+  <a class="cta"
+     href="https://t.me/VoluntaryVault"
+     target="_blank"
+     onclick="fbq('track','Lead');">
+     Open Telegram Channel
+  </a>
+
+  <div class="footer">
+    © 2019–2026 TRON Research Platform. All rights reserved.
+  </div>
+
 </div>
-
-<script>
-const data = {
-en:{title:"Earn Daily With Small Capital",subtitle:"Start from 1$. Get instant bonuses. Join our fast-growing community.",f1t:"From 1$",f1:"Anyone can start with minimal risk.",f2t:"Instant Bonus",f2:"Receive extra on your first deposit.",f3t:"24h Profit Cycle",f3:"Your money works every day.",join:"Join Telegram Channel",proof:"Over 10,000+ users already inside"},
-ru:{title:"Зарабатывай с минимальными суммами",subtitle:"Начни с 1$. Мгновенные бонусы. Растущее сообщество.",f1t:"От 1$",f1:"Начать может каждый с минимальным риском.",f2t:"Мгновенный бонус",f2:"Получите на первый депозит.",f3t:"Цикл 24 часа",f3:"Ваши деньги работают каждый день.",join:"Перейти в Telegram",proof:"Уже более 10 000+ участников"},
-cn:{title:"每天用小资金赚钱",subtitle:"从1$开始。获取即时奖励。加入快速增长的社区。",f1t:"从1$开始",f1:"任何人都可以开始，风险最小。",f2t:"即时奖励",f2:"首次存款即可获得额外资金。",f3t:"24小时收益周期",f3:"你的资金每天工作。",join:"加入Telegram频道",proof:"已有超过10,000用户"},
-jp:{title:"少額資金で毎日稼ぐ",subtitle:"1$から始める。即時ボーナスを取得。成長中のコミュニティに参加。",f1t:"1$から",f1:"誰でも最小リスクで始められます。",f2t:"即時ボーナス",f2:"初回入金で追加資金を受け取る。",f3t:"24時間サイクル",f3:"資金は毎日働きます。",join:"Telegramに参加",proof:"すでに10,000人以上が参加"},
-no:{title:"Tjen penger daglig med liten kapital",subtitle:"Start fra 1$. Få øyeblikkelige bonuser. Bli med i vårt raskt voksende fellesskap.",f1t:"Fra 1$",f1:"Alle kan starte med minimal risiko.",f2t:"Umiddelbar bonus",f2:"Få ekstra ved første innskudd.",f3t:"24-timers syklus",f3:"Pengene dine jobber hver dag.",join:"Bli med i Telegram",proof:"Over 10 000 brukere allerede inne"},
-ch:{title:"Earn Daily With Small Capital",subtitle:"Start from 1$. Get instant bonuses. Join our fast-growing community.",f1t:"From 1$",f1:"Anyone can start with minimal risk.",f2t:"Instant Bonus",f2:"Receive extra on your first deposit.",f3t:"24h Profit Cycle",f3:"Your money works every day.",join:"Join Telegram Channel",proof:"Over 10,000+ users already inside"}
-};
-
-function setLang(lang){
-const d = data[lang];
-document.getElementById("title").innerText=d.title;
-document.getElementById("subtitle").innerText=d.subtitle;
-document.getElementById("f1t").innerText=d.f1t;
-document.getElementById("f1").innerText=d.f1;
-document.getElementById("f2t").innerText=d.f2t;
-document.getElementById("f2").innerText=d.f2;
-document.getElementById("f3t").innerText=d.f3t;
-document.getElementById("f3").innerText=d.f3;
-document.getElementById("join").innerText=d.join;
-document.getElementById("proof").innerText=d.proof;
-}
-
-// Default language EN
-setLang('en');
-</script>
 </body>
 </html>
