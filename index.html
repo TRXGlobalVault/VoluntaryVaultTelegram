@@ -71,7 +71,7 @@ h1{
   color:var(--muted);
   margin-bottom:26px;
 }
-/* Метрики - обновлённый стиль */
+/* Метрики - идеально по центру */
 .metrics{
   display:flex;
   justify-content:space-between;
@@ -88,21 +88,23 @@ h1{
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  text-align:center; /* для подписи span тоже */
+  text-align:center;
 }
 .metric span{
   font-size:12px;
   color:var(--muted);
-  margin-bottom:6px; /* расстояние между подписью и цифрой */
+  margin-bottom:6px;
+  display:block;
+  width:100%;
+  text-align:center;
 }
 .metric strong {
   font-size:16px;
   font-weight:600;
   color:#fff;
-  display:flex;          /* меняем block на flex */
-  align-items:center;    /* вертикальное центрирование */
-  justify-content:center; /* горизонтальное центрирование */
-  text-align:center;     /* на всякий случай */
+  display:block;
+  width:100%;
+  text-align:center;
 }
 .process{
   font-size:14px;
@@ -148,11 +150,11 @@ h1{
     Smart and transparent micro-investing infrastructure
   </div>
 
-  <!-- Обновлённый блок метрик -->
+  <!-- Метрики с точным центром -->
   <div class="metrics">
     <div class="metric">
       <span>Deposit</span>
-      <strong>1 – 100 $</strong>
+      <strong>1–100 USD</strong>
     </div>
     <div class="metric">
       <span>Time</span>
@@ -160,7 +162,7 @@ h1{
     </div>
     <div class="metric">
       <span>Profit</span>
-      <strong>3–8 %</strong>
+      <strong>3–8%</strong>
     </div>
   </div>
 
