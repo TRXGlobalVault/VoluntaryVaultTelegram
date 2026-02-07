@@ -71,7 +71,7 @@ h1{
   color:var(--muted);
   margin-bottom:26px;
 }
-/* Метрики - идеально по центру */
+/* Метрики */
 .metrics{
   display:flex;
   justify-content:space-between;
@@ -108,6 +108,12 @@ h1{
   width:100%;
   text-align:center;
 }
+
+/* Специально для Profit, чтобы немного сдвинуть вправо */
+.metric.profit strong {
+  margin-left:2px; /* подвинуть вправо */
+}
+
 .process{
   font-size:14px;
   line-height:1.7;
@@ -152,19 +158,19 @@ h1{
     Smart and transparent micro-investing infrastructure
   </div>
 
-  <!-- Метрики с идеально выровненной цифрой -->
+  <!-- Метрики с центровкой и сдвигом для Profit -->
   <div class="metrics">
     <div class="metric">
       <span>Deposit</span>
-      <strong>1 – 100 USD</strong>
+      <strong>1–100 USD</strong>
     </div>
     <div class="metric">
       <span>Time</span>
       <strong>24 Hours</strong>
     </div>
-    <div class="metric">
+    <div class="metric profit">
       <span>Profit</span>
-      <strong>3–8 %</strong>
+      <strong>3–8%</strong>
     </div>
   </div>
 
